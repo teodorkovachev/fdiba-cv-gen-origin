@@ -8,7 +8,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.tu.sofia.fdiba.cvgen.dao.PersonalDetailDAO;
+import org.tu.sofia.fdiba.cvgen.dao.PersonalInfoDAO;
 import org.tu.sofia.fdiba.cvgen.entity.PersonalDetail;
+import org.tu.sofia.fdiba.cvgen.entity.PersonalInfo;
 
 /**
  * @author Teo
@@ -21,9 +23,22 @@ public class PersonalProfileServiceImpl implements PersonalProfileService {
 	@Autowired
 	private PersonalDetailDAO pdd;
 	
+	@Autowired
+	private PersonalInfoDAO pid;
+	
 	@Override
 	public void saveOrUpdate(PersonalDetail detail) {
-		detail.setUserName(SecurityContextHolder.getContext().getAuthentication().getName());
+		detail.setUserName(getUserName());
 		pdd.saveOrUpdate(detail);
+	}
+
+	@Override
+	public PersonalInfo getPersonalInfo() {
+		PersonalInfo pi = pid.get(getUserName());
+		return pi == null ? new PersonalInfo() : pi;
+	}
+	
+	private String getUserName() {
+		return SecurityContextHolder.getContext().getAuthentication().getName();
 	}
 }
