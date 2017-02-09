@@ -22,9 +22,23 @@ function setUpAjax(formId, url) {
 	}
 }
 
+function hideToDateIfCurrentCheckboxChecked(){
+	if($('.current').is(':checked')){
+		$(".toDateDiv").hide();
+	}
+}
+
 $(function() {
 	$(".datepicker").datepicker({
 	    autoclose: true,
 	    format: "dd.mm.yyyy"
 	});
+	
+	$('.current').click(function() {
+	    $(".toDateDiv").toggle(!this.checked);
+	    $(".toDate").val("");
+	});
+	
+	hideToDateIfCurrentCheckboxChecked();
+	
 });

@@ -3,6 +3,8 @@
  */
 package org.tu.sofia.fdiba.cvgen.svc;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -40,5 +42,20 @@ public class PersonalProfileServiceImpl implements PersonalProfileService {
 	
 	private String getUserName() {
 		return SecurityContextHolder.getContext().getAuthentication().getName();
+	}
+
+	@Override
+	public <T> Collection<T> getCollectionOf(Class<T> clazz) {
+		return pdd.getCollectionByUserName(clazz, getUserName());
+	}
+
+	@Override
+	public <T> T getById(Class<T> clazz, int id) {
+		return pdd.getById(clazz, id);
+	}
+
+	@Override
+	public void delete(Object obj) {
+		pdd.delete(obj);
 	}
 }
