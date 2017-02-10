@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.tu.sofia.fdiba.cvgen.entity.Education;
+import org.tu.sofia.fdiba.cvgen.entity.Language;
 import org.tu.sofia.fdiba.cvgen.entity.PersonalInfo;
 import org.tu.sofia.fdiba.cvgen.entity.ProfExp;
 import org.tu.sofia.fdiba.cvgen.svc.PersonalProfileService;
@@ -38,6 +39,7 @@ public class PersonalProfileController {
 		model.addAttribute("personalInfo", pps.getPersonalInfo());
 		model.addAttribute("educations", pps.getCollectionOf(Education.class));
 		model.addAttribute("profs", pps.getCollectionOf(ProfExp.class));
+		model.addAttribute("langs", pps.getCollectionOf(Language.class));
 		return "personalProfile";
 	}
 	
@@ -105,6 +107,30 @@ public class PersonalProfileController {
 	@RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
 	public String uploadProfilePic(MultipartHttpServletRequest request) throws IOException {
 		pps.saveImage(request.getFile("imageUpload").getBytes());
+		return "redirect:/personalProfile";
+	}
+	
+	@RequestMapping(value = "/lang/new", method = RequestMethod.GET)
+	public String addNewLanguage(Model model) {
+		model.addAttribute("lang", new Language());
+		return "lang";
+	}
+	
+	@RequestMapping(value = "/lang/save", method = RequestMethod.POST)
+	public String saveLanguage(Language edu) {
+		pps.saveOrUpdate(edu);
+		return "redirect:/personalProfile";
+	}
+	
+	@RequestMapping(value = "/lang/edit/{id}", method = RequestMethod.GET)
+	public String editLanguage(@PathVariable("id") int id, Model model) {
+		model.addAttribute("lang", pps.getById(Language.class, id));
+		return "lang";
+	}
+	
+	@RequestMapping(value = "/lang/delete", method = RequestMethod.GET)
+	public String deleteLanguage(Language edu) {
+		pps.delete(edu);
 		return "redirect:/personalProfile";
 	}
 }

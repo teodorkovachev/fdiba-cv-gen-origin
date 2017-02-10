@@ -117,10 +117,10 @@
 	   					<table class="table table-striped">
 							<thead>
 								<tr>
-							  		<th>From</th>
-							  		<th>To</th>
-							  		<th>Name and type of the educational institution</th>
-							  		<th>
+							  		<th class="col-sm-2">From</th>
+							  		<th class="col-sm-2">To</th>
+							  		<th class="col-sm-7">Name and type of the educational institution</th>
+							  		<th class="col-sm-1">
 							  			<form action="<c:url value='/personalProfile/education/new'/>" method='GET'>
 	    									<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
 										</form>
@@ -164,11 +164,11 @@
 	   					<table class="table table-striped">
 							<thead>
 								<tr>
-							  		<th>From</th>
-							  		<th>To</th>
-							  		<th>Employer</th>
-							  		<th>Position</th>
-							  		<th>
+							  		<th class="col-sm-2">From</th>
+							  		<th class="col-sm-2">To</th>
+							  		<th class="col-sm-4">Employer</th>
+							  		<th class="col-sm-3">Position</th>
+							  		<th class="col-sm-1">
 							  			<form action="<c:url value='/personalProfile/prof/new'/>" method='GET'>
 	    									<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
 										</form>
@@ -193,6 +193,48 @@
 								        <td>${prof.position}</td>
 								        <td>
 								        	<form action="<c:url value='/personalProfile/prof/edit/${prof.id}'/>" method='GET'>
+	    										<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span></button>
+	    									</form>
+										</td>
+								    </tr>
+								</c:forEach>
+							</tbody>
+						</table>
+	    			</div>
+	   			</div>
+	   		</div>
+    		
+    		<div class="row">
+	   			<div class="panel panel-default">
+	   				<div class="panel-heading">
+	   					<h3 class="panel-title">Languages</h3>
+	   				</div>
+	   				<div class="panel-body">
+	   					<table class="table table-striped">
+							<thead>
+								<tr>
+							  		<th class="col-sm-3">Language</th>
+							  		<th class="col-sm-2">Reading</th>
+							  		<th class="col-sm-2">Listening</th>
+							  		<th class="col-sm-2">Writing</th>
+							  		<th class="col-sm-2">Speaking</th>
+							  		<th class="col-sm-1">
+							  			<form action="<c:url value='/personalProfile/lang/new'/>" method='GET'>
+	    									<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
+										</form>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${langs}" var="lang">
+								    <tr>      
+								        <td>${lang.name}</td>
+								        <td>${lang.reading}</td>
+								        <td>${lang.listening}</td>
+								        <td>${lang.writing}</td>
+								        <td>${lang.speaking}</td>
+								        <td>
+								        	<form action="<c:url value='/personalProfile/lang/edit/${lang.id}'/>" method='GET'>
 	    										<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span></button>
 	    									</form>
 										</td>
