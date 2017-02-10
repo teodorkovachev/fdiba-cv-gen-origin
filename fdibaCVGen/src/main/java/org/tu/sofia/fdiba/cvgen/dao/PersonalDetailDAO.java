@@ -17,6 +17,8 @@ public interface PersonalDetailDAO {
 	
 	<T> Collection<T> getCollectionByUserName(Class<T> clazz, String userName);
 	
+	<T> T getByUserName(Class<T> clazz, String userName);
+	
 	<T> T getById(Class<T> clazz, int id);
 	
 	void delete(Object obj);

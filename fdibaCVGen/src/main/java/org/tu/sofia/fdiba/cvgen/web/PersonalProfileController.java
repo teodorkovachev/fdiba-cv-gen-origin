@@ -3,6 +3,12 @@
  */
 package org.tu.sofia.fdiba.cvgen.web;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,8 +16,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.tu.sofia.fdiba.cvgen.entity.Education;
 import org.tu.sofia.fdiba.cvgen.entity.PersonalInfo;
+import org.tu.sofia.fdiba.cvgen.entity.ProfExp;
 import org.tu.sofia.fdiba.cvgen.svc.PersonalProfileService;
 
 /**
@@ -29,6 +37,7 @@ public class PersonalProfileController {
 	public String personalProfilePage(Model model) {
 		model.addAttribute("personalInfo", pps.getPersonalInfo());
 		model.addAttribute("educations", pps.getCollectionOf(Education.class));
+		model.addAttribute("profs", pps.getCollectionOf(ProfExp.class));
 		return "personalProfile";
 	}
 	
@@ -60,6 +69,42 @@ public class PersonalProfileController {
 	@RequestMapping(value = "/education/delete", method = RequestMethod.GET)
 	public String deleteEducation(Education edu) {
 		pps.delete(edu);
+		return "redirect:/personalProfile";
+	}
+	
+	@RequestMapping(value = "/prof/new", method = RequestMethod.GET)
+	public String addNewProfExp(Model model) {
+		model.addAttribute("prof", new ProfExp());
+		return "prof";
+	}
+	
+	@RequestMapping(value = "/prof/save", method = RequestMethod.POST)
+	public String saveProfExp(ProfExp edu) {
+		pps.saveOrUpdate(edu);
+		return "redirect:/personalProfile";
+	}
+	
+	@RequestMapping(value = "/prof/edit/{id}", method = RequestMethod.GET)
+	public String editProfExp(@PathVariable("id") int id, Model model) {
+		model.addAttribute("prof", pps.getById(ProfExp.class, id));
+		return "prof";
+	}
+	
+	@RequestMapping(value = "/prof/delete", method = RequestMethod.GET)
+	public String deleteProfExp(ProfExp edu) {
+		pps.delete(edu);
+		return "redirect:/personalProfile";
+	}
+	
+	@RequestMapping(value = "/profilePic", method = RequestMethod.GET)
+	public void getProfilePic(HttpServletResponse response, HttpServletRequest request) throws IOException {
+		response.setContentType("image/jpeg");
+		IOUtils.copy(pps.getProfilePicture(), response.getOutputStream());
+	}
+	
+	@RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
+	public String uploadProfilePic(MultipartHttpServletRequest request) throws IOException {
+		pps.saveImage(request.getFile("imageUpload").getBytes());
 		return "redirect:/personalProfile";
 	}
 }

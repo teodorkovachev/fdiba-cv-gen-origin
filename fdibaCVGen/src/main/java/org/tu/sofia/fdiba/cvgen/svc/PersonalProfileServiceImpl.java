@@ -3,14 +3,18 @@
  */
 package org.tu.sofia.fdiba.cvgen.svc;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.Collection;
+
+import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.tu.sofia.fdiba.cvgen.dao.PersonalDetailDAO;
-import org.tu.sofia.fdiba.cvgen.dao.PersonalInfoDAO;
+import org.tu.sofia.fdiba.cvgen.entity.Image;
 import org.tu.sofia.fdiba.cvgen.entity.PersonalDetail;
 import org.tu.sofia.fdiba.cvgen.entity.PersonalInfo;
 
@@ -26,7 +30,7 @@ public class PersonalProfileServiceImpl implements PersonalProfileService {
 	private PersonalDetailDAO pdd;
 	
 	@Autowired
-	private PersonalInfoDAO pid;
+	private ServletContext servletContext;
 	
 	@Override
 	public void saveOrUpdate(PersonalDetail detail) {
@@ -36,7 +40,7 @@ public class PersonalProfileServiceImpl implements PersonalProfileService {
 
 	@Override
 	public PersonalInfo getPersonalInfo() {
-		PersonalInfo pi = pid.get(getUserName());
+		PersonalInfo pi = pdd.getByUserName(PersonalInfo.class, getUserName());
 		return pi == null ? new PersonalInfo() : pi;
 	}
 	
@@ -57,5 +61,23 @@ public class PersonalProfileServiceImpl implements PersonalProfileService {
 	@Override
 	public void delete(Object obj) {
 		pdd.delete(obj);
+	}
+
+	@Override
+	public void saveImage(byte[] img) {
+		Image imgEntity = new Image();
+		imgEntity.setUserName(getUserName());
+		imgEntity.setImg(img);
+		pdd.saveOrUpdate(imgEntity);
+	}
+	
+	@Override
+	public InputStream getProfilePicture() {
+		Image img = pdd.getByUserName(Image.class, getUserName());
+		if (img == null) {
+			return servletContext.getResourceAsStream("/resources/img/profile-pic-default.jpg");
+		} else {
+			return new ByteArrayInputStream(img.getImg());
+		}
 	}
 }

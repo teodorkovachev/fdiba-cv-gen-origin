@@ -9,7 +9,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.tu.sofia.fdiba.cvgen.entity.Education;
 import org.tu.sofia.fdiba.cvgen.entity.PersonalDetail;
 
 /**
@@ -30,7 +29,7 @@ public class PersonalDetailDAOImpl implements PersonalDetailDAO {
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	@Override
 	public <T> Collection<T> getCollectionByUserName(Class<T> clazz, String userName) {
-		return sf.getCurrentSession().createCriteria(Education.class).add(Restrictions.eq("userName", userName)).list();
+		return sf.getCurrentSession().createCriteria(clazz).add(Restrictions.eq("userName", userName)).list();
 	}
 
 	@Override
@@ -41,6 +40,11 @@ public class PersonalDetailDAOImpl implements PersonalDetailDAO {
 	@Override
 	public void delete(Object obj) {
 		sf.getCurrentSession().delete(obj);
+	}
+
+	@Override
+	public <T> T getByUserName(Class<T> clazz, String userName) {
+		return sf.getCurrentSession().get(clazz, userName);
 	}
 
 }

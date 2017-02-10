@@ -27,7 +27,7 @@
   	<body>
   		<nav class="navbar navbar-default navbar-static-top">
       		<div class="container">
-      			<a class="navbar-brand" href="#"><span class="glyphicon glyphicon-edit"></span>FDIBA CV Generator</a>
+      			<a class="navbar-brand" href="#"><span class="glyphicon glyphicon-file"></span>FDIBA CV Generator</a>
       			<sec:authorize access="isAuthenticated()">
 	        		<div class="navbar-header">
 	          			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
