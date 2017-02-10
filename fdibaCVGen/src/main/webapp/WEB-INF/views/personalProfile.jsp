@@ -245,10 +245,56 @@
 	    			</div>
 	   			</div>
 	   		</div>
-    		
+	   		<div class="row">
+    			<div class="panel panel-default">
+    				<div class="panel-heading">
+    					<h3 class="panel-title">Personal skills</h3>
+    				</div>
+    				<div class="panel-body">
+		    			<form:form id="personalSkills" class="form-horizontal" modelAttribute="skills">
+		    				<div class="form-group">
+		    					<label class="control-label col-sm-2" for="com">Communication skills:</label>
+		    					<div class="col-sm-10">
+							      <form:textarea class="form-control" id="com" name="com" placeholder="Describe your communication skills" path="com"></form:textarea>
+							    </div>
+			   				</div>
+			   				<div class="form-group">
+		    					<label class="control-label col-sm-2" for="org">Organisational skills:</label>
+		    					<div class="col-sm-10">
+							      <form:textarea class="form-control" id="org" name="org" placeholder="Describe your organisational skills" path="org"></form:textarea>
+							    </div>
+			   				</div>
+			   				<div class="form-group">
+		    					<label class="control-label col-sm-2" for="prof">Professional skills:</label>
+		    					<div class="col-sm-10">
+							      <form:textarea class="form-control" id="prof" name="prof" placeholder="Describe the skills you've gained from you professional experience" path="prof"></form:textarea>
+							    </div>
+			   				</div>
+			   				<div class="form-group">
+		    					<label class="control-label col-sm-2" for="tech">Technical skills:</label>
+		    					<div class="col-sm-10">
+							      <form:textarea class="form-control" id="tech" name="tech" placeholder="Describe your technical skills" path="tech"></form:textarea>
+							    </div>
+			   				</div>
+			   				<div class="form-group">
+		    					<label class="control-label col-sm-2" for="other">Other skills:</label>
+		    					<div class="col-sm-10">
+							      <form:textarea class="form-control" id="other" name="other" placeholder="Other skills, that you want to share" path="other"></form:textarea>
+							    </div>
+			   				</div>
+			   				<div class="form-group"> 
+					    		<div class="col-sm-offset-2 col-sm-10">
+					      			<button type="submit" class="btn btn-primary">Update</button>
+					    		</div>
+					  		</div>
+		    			</form:form>
+	    			</div>
+    			</div>
+    		</div>
     	</div>
     	<script>
 			$(document).ready(setUpAjax("personalInfo", "/personalProfile/updatePersonalInfo"));
+			$(document).ready(setUpAjax("personalSkills", "/personalProfile/updatePersonalSkills"));
 		</script>
 	</jsp:body>
 </t:genericpage>

@@ -27,7 +27,7 @@
 							    </div>
 			   				</div>
 			   				<div class="form-group">
-		    					<label class="control-label col-sm-2" for="position">Disciplines:</label>
+		    					<label class="control-label col-sm-2" for="position">Position:</label>
 		    					<div class="col-sm-10">
 							      <form:input type="text" class="form-control" id="position" name="position" path="position" placeholder="Position in the company"/>
 							    </div>

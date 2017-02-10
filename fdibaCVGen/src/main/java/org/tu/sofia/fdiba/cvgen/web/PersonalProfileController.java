@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.tu.sofia.fdiba.cvgen.entity.Education;
 import org.tu.sofia.fdiba.cvgen.entity.Language;
 import org.tu.sofia.fdiba.cvgen.entity.PersonalInfo;
+import org.tu.sofia.fdiba.cvgen.entity.PersonalSkills;
 import org.tu.sofia.fdiba.cvgen.entity.ProfExp;
 import org.tu.sofia.fdiba.cvgen.svc.PersonalProfileService;
 
@@ -35,8 +36,9 @@ public class PersonalProfileController {
 	private PersonalProfileService pps;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public String personalProfilePage(Model model) {
-		model.addAttribute("personalInfo", pps.getPersonalInfo());
+	public String personalProfilePage(Model model) throws InstantiationException, IllegalAccessException {
+		model.addAttribute("personalInfo", pps.getByUserName(PersonalInfo.class));
+		model.addAttribute("skills", pps.getByUserName(PersonalSkills.class));
 		model.addAttribute("educations", pps.getCollectionOf(Education.class));
 		model.addAttribute("profs", pps.getCollectionOf(ProfExp.class));
 		model.addAttribute("langs", pps.getCollectionOf(Language.class));
@@ -46,6 +48,13 @@ public class PersonalProfileController {
 	@ResponseBody
 	@RequestMapping(value="/updatePersonalInfo", method=RequestMethod.POST)
 	public String updatePersonalInfo(PersonalInfo info){
+		pps.saveOrUpdate(info);
+		return "Success";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/updatePersonalSkills", method=RequestMethod.POST)
+	public String updatePersonalSkills(PersonalSkills info){
 		pps.saveOrUpdate(info);
 		return "Success";
 	}

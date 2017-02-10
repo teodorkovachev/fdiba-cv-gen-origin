@@ -16,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.tu.sofia.fdiba.cvgen.dao.PersonalDetailDAO;
 import org.tu.sofia.fdiba.cvgen.entity.Image;
 import org.tu.sofia.fdiba.cvgen.entity.PersonalDetail;
-import org.tu.sofia.fdiba.cvgen.entity.PersonalInfo;
 
 /**
  * @author Teo
@@ -39,9 +38,9 @@ public class PersonalProfileServiceImpl implements PersonalProfileService {
 	}
 
 	@Override
-	public PersonalInfo getPersonalInfo() {
-		PersonalInfo pi = pdd.getByUserName(PersonalInfo.class, getUserName());
-		return pi == null ? new PersonalInfo() : pi;
+	public <T> T getByUserName(Class<T> clazz) throws InstantiationException, IllegalAccessException {
+		T entity = pdd.getByUserName(clazz, getUserName());
+		return entity == null ? clazz.newInstance() : entity;
 	}
 	
 	private String getUserName() {
