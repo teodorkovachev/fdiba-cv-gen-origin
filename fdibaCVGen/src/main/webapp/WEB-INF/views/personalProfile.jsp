@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <t:genericpage>
 	<jsp:attribute name="title">
@@ -24,7 +25,7 @@
 			    			<form action="<c:url value='/personalProfile/uploadImage'/>" method="POST" enctype="multipart/form-data" class="form-horizontal">
 			    				<div class="form-group">
 			    					<label class="control-label col-sm-12 thumbnail" for="imageUpload">
-			    						<img alt="Profile image" src="<c:url value='/personalProfile/profilePic'/>">
+			    						<img alt="Profile image" src="/personalProfile/profilePic?usrName=<sec:authentication property='principal.username' />">
 			    					</label>
 			    					<div class="form-group">
 				    					<div class="col-sm-4">

@@ -16,7 +16,7 @@ public interface PersonalProfileService {
 
 	void saveOrUpdate(PersonalDetail detail);
 
-	InputStream getProfilePicture();
+	InputStream getProfilePicture(String usrName);
 	
 	<T> Collection<T> getCollectionOf(Class<T> clazz);
 	

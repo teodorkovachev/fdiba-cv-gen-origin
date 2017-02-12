@@ -71,8 +71,8 @@ public class PersonalProfileServiceImpl implements PersonalProfileService {
 	}
 	
 	@Override
-	public InputStream getProfilePicture() {
-		Image img = pdd.getByUserName(Image.class, getUserName());
+	public InputStream getProfilePicture(String usrName) {
+		Image img = pdd.getByUserName(Image.class, usrName);
 		if (img == null) {
 			return servletContext.getResourceAsStream("/resources/img/profile-pic-default.jpg");
 		} else {

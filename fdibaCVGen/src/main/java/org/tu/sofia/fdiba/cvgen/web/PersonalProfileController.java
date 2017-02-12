@@ -110,7 +110,8 @@ public class PersonalProfileController {
 	@RequestMapping(value = "/profilePic", method = RequestMethod.GET)
 	public void getProfilePic(HttpServletResponse response, HttpServletRequest request) throws IOException {
 		response.setContentType("image/jpeg");
-		IOUtils.copy(pps.getProfilePicture(), response.getOutputStream());
+		String usrName = request.getParameter("usrName");
+		IOUtils.copy(pps.getProfilePicture(usrName), response.getOutputStream());
 	}
 	
 	@RequestMapping(value = "/uploadImage", method = RequestMethod.POST)

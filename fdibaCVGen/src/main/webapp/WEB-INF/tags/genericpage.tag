@@ -45,7 +45,7 @@
 	            			</sec:authorize>
 	            			<sec:authorize access="hasRole('ROLE_EMPLOYEE')">
 	            				<li><a href="<c:url value='/personalProfile'/>">Personal profile</a></li>
-	            				<li><a href="#contact">Generate a CV</a></li>
+	            				<li><a href="<c:url value='/generateCV'/>">Generate a CV</a></li>
 	            			</sec:authorize>
 	          			</ul>
 	          			<ul class="nav navbar-pills pull-right">
