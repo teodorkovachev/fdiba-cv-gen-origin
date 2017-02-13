@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -87,7 +88,7 @@
 						<FONT SIZE=2>
 							<FONT FACE="Arial Narrow, serif">
 								<FONT SIZE=2 STYLE="font-size: 11pt">
-									<SPAN STYLE="font-weight: normal">Address</SPAN>
+									<SPAN STYLE="font-weight: normal">Address:</SPAN>
 								</FONT>
 							</FONT>
 						</FONT>
@@ -115,7 +116,7 @@
 						<FONT SIZE=2>
 							<FONT FACE="Arial Narrow, serif">
 								<FONT SIZE=2 STYLE="font-size: 11pt">
-									<SPAN STYLE="font-weight: normal">Telephone number</SPAN>
+									<SPAN STYLE="font-weight: normal">Telephone number:</SPAN>
 								</FONT>
 							</FONT>
 						</FONT>
@@ -143,7 +144,7 @@
 						<FONT SIZE=2>
 							<FONT FACE="Arial Narrow, serif">
 								<FONT SIZE=2 STYLE="font-size: 11pt">
-									<SPAN STYLE="font-weight: normal">E-mail</SPAN>
+									<SPAN STYLE="font-weight: normal">E-mail:</SPAN>
 								</FONT>
 							</FONT>
 						</FONT>
@@ -163,398 +164,319 @@
 					</P>
 				</TD>
 			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=182 STYLE="border: none; padding: 0in">
+					<P ALIGN=RIGHT STYLE="margin-top: 0.03in; widows: 2; orphans: 2; page-break-after: avoid">
+						<FONT SIZE=2>
+							<FONT FACE="Arial Narrow, serif">
+								<FONT SIZE=2 STYLE="font-size: 11pt">
+									<SPAN STYLE="font-weight: normal">Nationality:</SPAN>
+								</FONT>
+							</FONT>
+						</FONT>
+					</P>
+				</TD>
+				<TD WIDTH=10 STYLE="border: none; padding: 0in">
+					<P STYLE="margin-top: 0.03in; widows: 2; orphans: 2"><BR>
+					</P>
+				</TD>
+				<TD WIDTH=468 STYLE="border: none; padding: 0in">
+					<P STYLE="margin-top: 0.03in; widows: 2; orphans: 2">
+						<FONT SIZE=2>
+							<FONT SIZE=2 STYLE="font-size: 11pt">
+								<I><c:out value="${nationality}"/></I>
+							</FONT>
+						</FONT>
+					</P>
+				</TD>
+			</TR>
+			<TR VALIGN=TOP>
+				<TD WIDTH=182 STYLE="border: none; padding: 0in">
+					<P ALIGN=RIGHT STYLE="margin-top: 0.03in; widows: 2; orphans: 2; page-break-after: avoid">
+						<FONT SIZE=2>
+							<FONT FACE="Arial Narrow, serif">
+								<FONT SIZE=2 STYLE="font-size: 11pt">
+									<SPAN STYLE="font-weight: normal">Date of birth:</SPAN>
+								</FONT>
+							</FONT>
+						</FONT>
+					</P>
+				</TD>
+				<TD WIDTH=10 STYLE="border: none; padding: 0in">
+					<P STYLE="margin-top: 0.03in; widows: 2; orphans: 2"><BR>
+					</P>
+				</TD>
+				<TD WIDTH=468 STYLE="border: none; padding: 0in">
+					<P STYLE="margin-top: 0.03in; widows: 2; orphans: 2">
+						<FONT SIZE=2>
+							<FONT SIZE=2 STYLE="font-size: 11pt">
+								<I><fmt:formatDate pattern="dd.MM.yyyy" value="${birthDate}" /></I>
+							</FONT>
+						</FONT>
+					</P>
+				</TD>
+			</TR>
 		</TABLE>
-<P LANG="el-GR" STYLE="margin-top: 0.08in; margin-bottom: 0in; widows: 2; orphans: 2">
-<BR>
-</P>
-<TABLE WIDTH=697 CELLPADDING=7 CELLSPACING=0>
-	<COL WIDTH=182>
-	<COL WIDTH=5>
-	<COL WIDTH=468>
-	<TR VALIGN=TOP>
-		<TD WIDTH=182 STYLE="border: none; padding: 0in">
-			<P ALIGN=RIGHT STYLE="margin-top: 0.01in; widows: 2; orphans: 2; page-break-after: avoid">
-			<FONT SIZE=2><FONT FACE="Arial Narrow, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><SPAN STYLE="font-weight: normal">Nationality</SPAN></FONT></FONT></FONT></P>
-		</TD>
-		<TD WIDTH=5 STYLE="border: none; padding: 0in">
-			<P LANG="el-GR" STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><BR>
-			</P>
-		</TD>
-		<TD WIDTH=468 STYLE="border: none; padding: 0in">
-			<P STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><FONT SIZE=2><FONT SIZE=2 STYLE="font-size: 11pt"><I>Bulgarian</I></FONT></FONT></P>
-		</TD>
-	</TR>
-</TABLE>
-<P LANG="el-GR" STYLE="margin-top: 0.01in; margin-bottom: 0.01in; widows: 2; orphans: 2">
-<BR><BR>
-</P>
-<TABLE WIDTH=697 CELLPADDING=7 CELLSPACING=0>
-	<COL WIDTH=182>
-	<COL WIDTH=5>
-	<COL WIDTH=468>
-	<TR VALIGN=TOP>
-		<TD WIDTH=182 STYLE="border: none; padding: 0in">
-			<P ALIGN=RIGHT STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><FONT SIZE=2><FONT FACE="Arial Narrow, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Date
-			of birth</FONT></FONT></FONT></P>
-		</TD>
-		<TD WIDTH=5 STYLE="border: none; padding: 0in">
-			<P LANG="el-GR" STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><BR>
-			</P>
-		</TD>
-		<TD WIDTH=468 STYLE="border: none; padding: 0in">
-			<P STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><FONT SIZE=2><FONT SIZE=2 STYLE="font-size: 11pt"><I>10</I></FONT><FONT SIZE=2 STYLE="font-size: 11pt"><SPAN LANG="bg-BG"><I>.05.19</I></SPAN></FONT><FONT SIZE=2 STYLE="font-size: 11pt"><I>91</I></FONT></FONT></P>
-		</TD>
-	</TR>
-</TABLE>
-<P LANG="en-GB" ALIGN=JUSTIFY STYLE="margin-bottom: 0in; widows: 2; orphans: 2">
-<BR>
-</P>
-<TABLE WIDTH=196 CELLPADDING=7 CELLSPACING=0>
-	<COL WIDTH=182>
-	<TR>
-		<TD WIDTH=182 VALIGN=TOP STYLE="border: none; padding: 0in">
-			<P ALIGN=RIGHT STYLE="widows: 2; orphans: 2; page-break-after: avoid">
-			<FONT SIZE=2><B><SPAN STYLE="font-variant: small-caps"><FONT FACE="Arial Narrow, serif"><FONT SIZE=3>Education</FONT></FONT></SPAN></B></FONT></P>
-		</TD>
-	</TR>
-</TABLE>
-<P LANG="en-GB" STYLE="margin-bottom: 0in; widows: 2; orphans: 2"><BR>
-</P>
-<TABLE WIDTH=697 CELLPADDING=7 CELLSPACING=0>
-	<COL WIDTH=182>
-	<COL WIDTH=5>
-	<COL WIDTH=468>
-	<TR VALIGN=TOP>
-		<TD WIDTH=182 STYLE="border: none; padding: 0in">
-			<P ALIGN=RIGHT STYLE="margin-top: 0.01in; margin-bottom: 0.01in; widows: 2; orphans: 2"><A NAME="_GoBack"></A>
-			<FONT SIZE=1 STYLE="font-size: 8pt"><I>2014 - Present</I></FONT></P>
-			<P ALIGN=RIGHT STYLE="margin-top: 0.01in; margin-bottom: 0.01in; widows: 2; orphans: 2">
-			<FONT SIZE=1 STYLE="font-size: 8pt"><FONT FACE="Arial Narrow, serif"><FONT SIZE=2><SPAN STYLE="font-style: normal">Name
-			and type of the educational institution</SPAN></FONT></FONT></FONT></P>
-			<P ALIGN=RIGHT STYLE="margin-top: 0.01in; margin-bottom: 0.01in; widows: 2; orphans: 2">
-			<FONT SIZE=1 STYLE="font-size: 8pt"><FONT FACE="Arial Narrow, serif"><FONT SIZE=2><SPAN STYLE="font-style: normal">Primary
-			disciplines</SPAN></FONT></FONT></FONT></P>
-			<P ALIGN=RIGHT STYLE="margin-top: 0.01in; widows: 2; orphans: 2">
-			<FONT SIZE=1 STYLE="font-size: 8pt"><I>2010-2014</I></FONT></P>
-		</TD>
-		<TD WIDTH=5 STYLE="border: none; padding: 0in">
-			<P LANG="el-GR" STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><BR>
-			</P>
-		</TD>
-		<TD WIDTH=468 STYLE="border: none; padding: 0in">
-			<P LANG="bg-BG" ALIGN=LEFT STYLE="margin-top: 0.01in; margin-bottom: 0.01in; widows: 2; orphans: 2">
-			<BR><BR>
-			</P>
-			<P ALIGN=LEFT STYLE="margin-top: 0.01in; margin-bottom: 0.01in; widows: 2; orphans: 2">
-			<FONT SIZE=1 STYLE="font-size: 8pt"><I><FONT SIZE=2><U><B>Technical
-			University - Sofia, Faculty <A HREF="http://fdiba.tu-sofia.bg/">of
-			German Engineering Education and Industrial Management</A> (</B></U></FONT><FONT SIZE=2><U>FDIBA</U></FONT><FONT SIZE=2><U><B>)</B></U></FONT></I></FONT></P>
-			<P ALIGN=LEFT STYLE="margin-top: 0.01in; margin-bottom: 0.01in; widows: 2; orphans: 2">
-			<FONT SIZE=1 STYLE="font-size: 8pt"><FONT SIZE=2><SPAN LANG="de-DE"><SPAN STYLE="font-style: normal">German
-			</SPAN></SPAN></FONT><FONT SIZE=2><SPAN LANG="bg-BG"><SPAN STYLE="font-style: normal">,</SPAN></SPAN></FONT><FONT SIZE=2><SPAN LANG="de-DE"><SPAN STYLE="font-style: normal">
-			</SPAN></SPAN></FONT><FONT SIZE=2><SPAN LANG="bg-BG"><SPAN STYLE="font-style: normal">Program</SPAN></SPAN></FONT><FONT SIZE=2><SPAN LANG="de-DE"><SPAN STYLE="font-style: normal">ming</SPAN></SPAN></FONT></FONT></P>
-			<P LANG="bg-BG" ALIGN=LEFT STYLE="margin-top: 0.01in; widows: 2; orphans: 2">
-			<BR>
-			</P>
-		</TD>
-	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=182 STYLE="border: none; padding: 0in">
-			<P ALIGN=RIGHT STYLE="margin-top: 0.01in; widows: 2; orphans: 2">
-			<FONT SIZE=1 STYLE="font-size: 8pt"><FONT FACE="Arial Narrow, serif"><FONT SIZE=2><SPAN STYLE="font-style: normal">Name
-			and type of the educational institution</SPAN></FONT></FONT></FONT></P>
-		</TD>
-		<TD WIDTH=5 STYLE="border: none; padding: 0in">
-			<P LANG="el-GR" STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><BR>
-			</P>
-		</TD>
-		<TD WIDTH=468 STYLE="border: none; padding: 0in">
-			<P ALIGN=LEFT STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><FONT SIZE=1 STYLE="font-size: 8pt"><I><FONT SIZE=2><U><B>Technical
-			University - Sofia, Faculty <A HREF="http://fdiba.tu-sofia.bg/">of
-			German Engineering Education and Industrial Management</A> (</B></U></FONT><FONT SIZE=2><U>FDIBA</U></FONT><FONT SIZE=2><U><B>)</B></U></FONT></I></FONT></P>
-		</TD>
-	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=182 STYLE="border: none; padding: 0in">
-			<P ALIGN=RIGHT STYLE="margin-top: 0.01in; margin-bottom: 0.01in; widows: 2; orphans: 2">
-			 <FONT SIZE=1 STYLE="font-size: 8pt"><FONT FACE="Arial Narrow, serif"><FONT SIZE=2><SPAN STYLE="font-style: normal">Primary
-			disciplines</SPAN></FONT></FONT></FONT></P>
-			<P ALIGN=RIGHT STYLE="margin-top: 0.01in; widows: 2; orphans: 2">
-			<FONT SIZE=1 STYLE="font-size: 8pt"><FONT FACE="Arial Narrow, serif"><FONT SIZE=2><SPAN STYLE="font-style: normal">Level
-			by the national classification</SPAN></FONT></FONT></FONT></P>
-		</TD>
-		<TD WIDTH=5 STYLE="border: none; padding: 0in">
-			<P LANG="el-GR" STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><BR>
-			</P>
-		</TD>
-		<TD WIDTH=468 STYLE="border: none; padding: 0in">
-			<P ALIGN=LEFT STYLE="margin-top: 0.01in; margin-bottom: 0.01in; widows: 2; orphans: 2">
-			<FONT SIZE=1 STYLE="font-size: 8pt"><FONT SIZE=2><SPAN LANG="de-DE"><SPAN STYLE="font-style: normal">German
-			</SPAN></SPAN></FONT><FONT SIZE=2><SPAN LANG="bg-BG"><SPAN STYLE="font-style: normal">,</SPAN></SPAN></FONT><FONT SIZE=2><SPAN LANG="de-DE"><SPAN STYLE="font-style: normal">
-			</SPAN></SPAN></FONT><FONT SIZE=2><SPAN LANG="bg-BG"><SPAN STYLE="font-style: normal">Program</SPAN></SPAN></FONT><FONT SIZE=2><SPAN LANG="de-DE"><SPAN STYLE="font-style: normal">ming</SPAN></SPAN></FONT><FONT SIZE=2><SPAN LANG="bg-BG"><SPAN STYLE="font-style: normal">
-			</SPAN></SPAN></FONT></FONT>
-			</P>
-			<P ALIGN=LEFT STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><FONT SIZE=1 STYLE="font-size: 8pt"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>Bachelor
-			of computer engineering</B></SPAN></FONT></FONT></P>
-		</TD>
-	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=182 STYLE="border: none; padding: 0in">
-			<P ALIGN=RIGHT STYLE="margin-top: 0.01in; widows: 2; orphans: 2">
-			<FONT SIZE=1 STYLE="font-size: 8pt"><I>2006-2010</I></FONT></P>
-		</TD>
-		<TD WIDTH=5 STYLE="border: none; padding: 0in">
-			<P LANG="el-GR" STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><BR>
-			</P>
-		</TD>
-		<TD WIDTH=468 STYLE="border: none; padding: 0in">
-			<P LANG="bg-BG" ALIGN=LEFT STYLE="margin-top: 0.01in; widows: 2; orphans: 2">
-			<BR>
-			</P>
-		</TD>
-	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=182 STYLE="border: none; padding: 0in">
-			<P ALIGN=RIGHT STYLE="margin-top: 0.01in; widows: 2; orphans: 2">
-			<FONT SIZE=1 STYLE="font-size: 8pt"><FONT FACE="Arial Narrow, serif"><FONT SIZE=2><SPAN STYLE="font-style: normal">Name
-			and type of the educational institution</SPAN></FONT></FONT></FONT></P>
-		</TD>
-		<TD WIDTH=5 STYLE="border: none; padding: 0in">
-			<P LANG="el-GR" STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><BR>
-			</P>
-		</TD>
-		<TD WIDTH=468 STYLE="border: none; padding: 0in">
-			<P ALIGN=LEFT STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><U>
-			</U><FONT SIZE=1 STYLE="font-size: 8pt"><I><FONT SIZE=2><SPAN LANG="de-DE"><U><B>English
-			Language School "Plovdiv"</B></U></SPAN></FONT></I></FONT></P>
-		</TD>
-	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=182 STYLE="border: none; padding: 0in">
-			<P ALIGN=RIGHT STYLE="margin-top: 0.01in; widows: 2; orphans: 2">
-			<FONT SIZE=1 STYLE="font-size: 8pt"><FONT FACE="Arial Narrow, serif"><FONT SIZE=2><SPAN STYLE="font-style: normal">Primary
-			disciplines</SPAN></FONT></FONT></FONT></P>
-		</TD>
-		<TD WIDTH=5 STYLE="border: none; padding: 0in">
-			<P LANG="el-GR" STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><BR>
-			</P>
-		</TD>
-		<TD WIDTH=468 STYLE="border: none; padding: 0in">
-			<P ALIGN=LEFT STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><FONT SIZE=1 STYLE="font-size: 8pt"><FONT SIZE=2><SPAN STYLE="font-style: normal">German,
-			English</SPAN></FONT></FONT></P>
-		</TD>
-	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=182 STYLE="border: none; padding: 0in">
-			<P ALIGN=RIGHT STYLE="margin-top: 0.01in; widows: 2; orphans: 2">
-			<FONT SIZE=1 STYLE="font-size: 8pt"><I><SPAN LANG="bg-BG">Acquired
-			certificate  </SPAN></I></FONT>
-			</P>
-		</TD>
-		<TD WIDTH=5 STYLE="border: none; padding: 0in">
-			<P LANG="el-GR" STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><BR>
-			</P>
-		</TD>
-		<TD WIDTH=468 STYLE="border: none; padding: 0in">
-			<P ALIGN=LEFT STYLE="margin-top: 0.01in; margin-bottom: 0.01in; widows: 2; orphans: 2">
-			 <FONT SIZE=1 STYLE="font-size: 8pt"><FONT SIZE=2><SPAN LANG="de-DE"><SPAN STYLE="font-style: normal"><B>Deutsches
-			Sprachdiplom DSD II:</B></SPAN></SPAN></FONT></FONT></P>
-			<P ALIGN=LEFT STYLE="margin-top: 0.01in; margin-bottom: 0.01in; widows: 2; orphans: 2">
-			<FONT SIZE=1 STYLE="font-size: 8pt"><FONT SIZE=2><SPAN LANG="de-DE"><SPAN STYLE="font-style: normal">Leseverstehen:
-			                            </SPAN></SPAN></FONT><FONT SIZE=2><SPAN LANG="bg-BG"><SPAN STYLE="font-style: normal">
-			</SPAN></SPAN></FONT><FONT SIZE=2><SPAN LANG="de-DE"><SPAN STYLE="font-style: normal">Niveau
-			C1</SPAN></SPAN></FONT></FONT></P>
-			<P ALIGN=LEFT STYLE="margin-top: 0.01in; margin-bottom: 0.01in; widows: 2; orphans: 2">
-			<FONT SIZE=1 STYLE="font-size: 8pt"><FONT SIZE=2><SPAN LANG="de-DE"><SPAN STYLE="font-style: normal">Hörverstehen:
-			                             </SPAN></SPAN></FONT><FONT SIZE=2><SPAN LANG="bg-BG"><SPAN STYLE="font-style: normal">
-			</SPAN></SPAN></FONT><FONT SIZE=2><SPAN LANG="de-DE"><SPAN STYLE="font-style: normal">Niveau
-			C1</SPAN></SPAN></FONT></FONT></P>
-			<P ALIGN=LEFT STYLE="margin-top: 0.01in; margin-bottom: 0.01in; widows: 2; orphans: 2">
-			<FONT SIZE=1 STYLE="font-size: 8pt"><FONT SIZE=2><SPAN LANG="de-DE"><SPAN STYLE="font-style: normal">Schriftliche
-			Kommunikation:      </SPAN></SPAN></FONT><FONT SIZE=2><SPAN LANG="bg-BG"><SPAN STYLE="font-style: normal">
-			</SPAN></SPAN></FONT><FONT SIZE=2><SPAN LANG="de-DE"><SPAN STYLE="font-style: normal">Niveau
-			C1</SPAN></SPAN></FONT></FONT></P>
-			<P ALIGN=LEFT STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><FONT SIZE=1 STYLE="font-size: 8pt"><FONT SIZE=2><SPAN LANG="de-DE"><SPAN STYLE="font-style: normal">Mündliche
-			Kommunikation:        </SPAN></SPAN></FONT><FONT SIZE=2><SPAN LANG="bg-BG"><SPAN STYLE="font-style: normal">
-			</SPAN></SPAN></FONT><FONT SIZE=2><SPAN LANG="de-DE"><SPAN STYLE="font-style: normal">Niveau
-			C1</SPAN></SPAN></FONT></FONT></P>
-		</TD>
-	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=182 STYLE="border: none; padding: 0in">
-			<P ALIGN=RIGHT STYLE="margin-top: 0.01in; widows: 2; orphans: 2">
-			<FONT SIZE=1 STYLE="font-size: 8pt"><FONT FACE="Arial Narrow, serif"><FONT SIZE=2><SPAN STYLE="font-style: normal">Level
-			by the national classification</SPAN></FONT></FONT><FONT FACE="Arial Narrow, serif"><FONT SIZE=2><SPAN LANG="el-GR"><SPAN STYLE="font-style: normal">
-			</SPAN></SPAN></FONT></FONT></FONT>
-			</P>
-		</TD>
-		<TD WIDTH=5 STYLE="border: none; padding: 0in">
-			<P LANG="el-GR" STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><BR>
-			</P>
-		</TD>
-		<TD WIDTH=468 STYLE="border: none; padding: 0in">
-			<P ALIGN=LEFT STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><FONT SIZE=1 STYLE="font-size: 8pt"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>High
-			school diploma</B></SPAN></FONT></FONT></P>
-		</TD>
-	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=182 STYLE="border: none; padding: 0in">
-			<P ALIGN=RIGHT STYLE="margin-top: 0.01in; widows: 2; orphans: 2">
-			<FONT SIZE=1 STYLE="font-size: 8pt"><I>2005-2006</I></FONT></P>
-		</TD>
-		<TD WIDTH=5 STYLE="border: none; padding: 0in">
-			<P LANG="el-GR" STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><BR>
-			</P>
-		</TD>
-		<TD WIDTH=468 STYLE="border: none; padding: 0in">
-			<P LANG="bg-BG" ALIGN=LEFT STYLE="margin-top: 0.01in; widows: 2; orphans: 2">
-			<BR>
-			</P>
-		</TD>
-	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=182 STYLE="border: none; padding: 0in">
-			<P ALIGN=RIGHT STYLE="margin-top: 0.01in; widows: 2; orphans: 2">
-			<FONT SIZE=1 STYLE="font-size: 8pt"><FONT FACE="Arial Narrow, serif"><FONT SIZE=2><SPAN STYLE="font-style: normal">Name
-			and type of the educational institution</SPAN></FONT></FONT></FONT></P>
-		</TD>
-		<TD WIDTH=5 STYLE="border: none; padding: 0in">
-			<P LANG="el-GR" STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><BR>
-			</P>
-		</TD>
-		<TD WIDTH=468 STYLE="border: none; padding: 0in">
-			<P ALIGN=LEFT STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><U>
-			 </U><FONT SIZE=1 STYLE="font-size: 8pt"><I><FONT SIZE=2><U><B>French
-			Language School "Romain Rolland"- Stara Zagora</B></U></FONT><SPAN LANG="bg-BG">
-			 </SPAN></I></FONT>
-			</P>
-		</TD>
-	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=182 STYLE="border: none; padding: 0in">
-			<P ALIGN=RIGHT STYLE="margin-top: 0.01in; widows: 2; orphans: 2">
-			<FONT SIZE=1 STYLE="font-size: 8pt"><FONT FACE="Arial Narrow, serif"><FONT SIZE=2><SPAN STYLE="font-style: normal">Primary
-			disciplines</SPAN></FONT></FONT></FONT></P>
-		</TD>
-		<TD WIDTH=5 STYLE="border: none; padding: 0in">
-			<P LANG="el-GR" STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><BR>
-			</P>
-		</TD>
-		<TD WIDTH=468 STYLE="border: none; padding: 0in">
-			<P ALIGN=LEFT STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><FONT SIZE=1 STYLE="font-size: 8pt"><FONT SIZE=2><SPAN STYLE="font-style: normal">German</SPAN></FONT></FONT></P>
-		</TD>
-	</TR>
-</TABLE>
-<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
-</P>
-<TABLE WIDTH=697 CELLPADDING=7 CELLSPACING=0>
-	<COL WIDTH=182>
-	<COL WIDTH=5>
-	<COL WIDTH=468>
-	<TR>
-		<TD COLSPAN=3 WIDTH=683 VALIGN=TOP STYLE="border: none; padding: 0in">
-			<P ALIGN=RIGHT STYLE="widows: 2; orphans: 2; page-break-after: avoid">
-			<FONT SIZE=2><B><SPAN STYLE="font-variant: small-caps"><FONT FACE="Arial Narrow, serif"><FONT SIZE=3>Professional
-			Experience</FONT></FONT></SPAN></B></FONT></P>
-		</TD>
-	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=182 STYLE="border: none; padding: 0in">
-			<UL>
-				<LI><P ALIGN=RIGHT STYLE="margin-top: 0.01in; margin-bottom: 0.01in; widows: 2; orphans: 2">
-				<FONT SIZE=1 STYLE="font-size: 8pt"><I>01.12.2012 - 15.05.2015</I></FONT></P>
-				<LI><P ALIGN=RIGHT STYLE="margin-top: 0.01in; margin-bottom: 0.01in; widows: 2; orphans: 2">
-				<FONT SIZE=1 STYLE="font-size: 8pt"><FONT FACE="Arial Narrow, serif"><FONT SIZE=2><SPAN LANG="bg-BG"><SPAN STYLE="font-style: normal">Employer</SPAN></SPAN></FONT></FONT></FONT></P>
-				<LI><P ALIGN=RIGHT STYLE="margin-top: 0.01in; margin-bottom: 0.01in; widows: 2; orphans: 2">
-				<FONT SIZE=1 STYLE="font-size: 8pt"><FONT FACE="Arial Narrow, serif"><FONT SIZE=2><SPAN STYLE="font-style: normal">Post</SPAN></FONT></FONT></FONT></P>
-			</UL>
-			<P ALIGN=RIGHT STYLE="margin-top: 0.01in; margin-bottom: 0.01in; widows: 2; orphans: 2">
-			<BR><BR>
-			</P>
-			<P ALIGN=RIGHT STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><FONT SIZE=1 STYLE="font-size: 8pt"><I>13.03.2011-30.09.2012<SPAN LANG="bg-BG">
-			</SPAN></I></FONT>
-			</P>
-		</TD>
-		<TD WIDTH=5 STYLE="border: none; padding: 0in">
-			<P LANG="el-GR" STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><BR>
-			</P>
-		</TD>
-		<TD WIDTH=468 STYLE="border: none; padding: 0in">
-			<P LANG="bg-BG" ALIGN=LEFT STYLE="margin-top: 0.01in; margin-bottom: 0.01in; widows: 2; orphans: 2">
-			<BR><BR>
-			</P>
-			<P ALIGN=LEFT STYLE="margin-top: 0.01in; margin-bottom: 0.01in; widows: 2; orphans: 2">
-			"<FONT SIZE=1 STYLE="font-size: 8pt"><I><FONT SIZE=2>Libra
-			Software" GmbH, Sofia</FONT></I></FONT></P>
-			<P ALIGN=LEFT STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><FONT SIZE=1 STYLE="font-size: 8pt"><I><FONT SIZE=2>Java
-			Developer</FONT></I></FONT></P>
-		</TD>
-	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=182 STYLE="border: none; padding: 0in">
-			<P ALIGN=RIGHT STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><FONT SIZE=1 STYLE="font-size: 8pt"><FONT FACE="Arial Narrow, serif"><FONT SIZE=2><SPAN STYLE="font-style: normal">Employer</SPAN></FONT></FONT></FONT></P>
-		</TD>
-		<TD WIDTH=5 STYLE="border: none; padding: 0in">
-			<P LANG="el-GR" STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><BR>
-			</P>
-		</TD>
-		<TD WIDTH=468 STYLE="border: none; padding: 0in">
-			<P ALIGN=LEFT STYLE="margin-top: 0.01in; widows: 2; orphans: 2">"<FONT SIZE=1 STYLE="font-size: 8pt"><I><FONT SIZE=2>Sitel
-			Bulgaria: Nokia Project"</FONT></I></FONT></P>
-		</TD>
-	</TR>
-	<TR VALIGN=TOP>
-		<TD WIDTH=182 STYLE="border: none; padding: 0in">
-			<P ALIGN=RIGHT STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><FONT SIZE=1 STYLE="font-size: 8pt"><FONT FACE="Arial Narrow, serif"><FONT SIZE=2><SPAN STYLE="font-style: normal">Post</SPAN></FONT></FONT></FONT></P>
-		</TD>
-		<TD WIDTH=5 STYLE="border: none; padding: 0in">
-			<P LANG="el-GR" STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><BR>
-			</P>
-		</TD>
-		<TD WIDTH=468 STYLE="border: none; padding: 0in">
-			<P ALIGN=LEFT STYLE="margin-top: 0.01in; widows: 2; orphans: 2"><FONT SIZE=1 STYLE="font-size: 8pt"><I><FONT SIZE=2>Customer
-			Service Professional</FONT></I></FONT></P>
-		</TD>
-	</TR>
-</TABLE>
-<P ALIGN=JUSTIFY STYLE="margin-bottom: 0in; widows: 2; orphans: 2"><FONT SIZE=2><FONT FACE="Arial Narrow, serif"><SPAN LANG="el-GR"><B>	</B></SPAN></FONT></FONT></P>
-<TABLE WIDTH=697 CELLPADDING=7 CELLSPACING=0>
-	<COL WIDTH=182>
-	<COL WIDTH=5>
-	<COL WIDTH=468>
-	<TR VALIGN=TOP>
-		<TD WIDTH=182 HEIGHT=2 STYLE="border: none; padding: 0in">
-			<P ALIGN=LEFT STYLE="widows: 2; orphans: 2; page-break-after: avoid">
-			<SPAN STYLE="font-variant: small-caps">                         
-			<FONT SIZE=2><B><FONT FACE="Arial Narrow, serif"><FONT SIZE=3>Personal
-			Skills</FONT></FONT></SPAN></B></FONT></P>
-		</TD>
-		<TD WIDTH=5 STYLE="border: none; padding: 0in">
-			<P LANG="bg-BG" STYLE="margin-top: 0.01in; font-variant: small-caps; widows: 2; orphans: 2">
-			<BR>
-			</P>
-		</TD>
-		<TD WIDTH=468 STYLE="border: none; padding: 0in">
-			<P LANG="en-GB" CLASS="western" STYLE="margin-top: 0.01in"><SPAN LANG="en-US"><I>Java
-			EE: Enterprise Java Beans, Servlets, JSP; basic Knowledge in
-			HTML5, CSS3, JavaScript and SQL, Rich experience with mobile phone
-			technologies, Programming</I></SPAN><SPAN LANG="bg-BG"><I> </I></SPAN><SPAN LANG="en-US"><I>in
-			</I></SPAN><SPAN LANG="bg-BG"><I> </I></SPAN><SPAN LANG="en-US"><I>C
-			and Java (Eclipse IDE),  Good Knowledge in OOP and concepts</I></SPAN><SPAN LANG="bg-BG"><I>,</I></SPAN><SPAN LANG="en-US"><I>
-			Excellent</I></SPAN><SPAN LANG="bg-BG"><I> </I></SPAN><SPAN LANG="en-US"><I>work</I></SPAN><SPAN LANG="bg-BG"><I>
-			</I></SPAN><SPAN LANG="en-US"><I>with</I></SPAN><SPAN LANG="bg-BG"><I>
-			</I></SPAN><SPAN LANG="en-US"><I>Microsoft</I></SPAN><SPAN LANG="bg-BG"><I>-</I></SPAN><SPAN LANG="en-US"><I>based</I></SPAN><SPAN LANG="bg-BG"><I>
-			</I></SPAN><SPAN LANG="en-US"><I>software</I></SPAN><SPAN LANG="bg-BG"><I>
-			</I></SPAN><SPAN LANG="en-US"><I>products </I></SPAN><SPAN LANG="bg-BG"><I>,</I></SPAN><SPAN LANG="en-US"><I>
-			fluency in </I></SPAN><SPAN LANG="bg-BG"><I> </I></SPAN><SPAN LANG="en-US"><I>German
-			and English</I></SPAN><SPAN LANG="bg-BG"><I>  </I></SPAN>
-			</P>
-		</TD>
-	</TR>
-</TABLE>
-<P LANG="bg-BG" STYLE="margin-bottom: 0in; widows: 2; orphans: 2"><BR>
-</P>
-<P LANG="en-GB" CLASS="western" STYLE="margin-bottom: 0in"><BR>
-</P>
+		<P LANG="en-GB" ALIGN=JUSTIFY STYLE="margin-bottom: 0in; widows: 2; orphans: 2">
+		<BR>
+		</P>
+		<TABLE WIDTH=196 CELLPADDING=7 CELLSPACING=0>
+			<COL WIDTH=182>
+			<TR>
+				<TD WIDTH=182 VALIGN=TOP STYLE="border: none; padding: 0in">
+					<P ALIGN=RIGHT STYLE="widows: 2; orphans: 2; page-break-after: avoid">
+					<FONT SIZE=2><B><SPAN STYLE="font-variant: small-caps"><FONT FACE="Arial Narrow, serif"><FONT SIZE=3>Education</FONT></FONT></SPAN></B></FONT></P>
+				</TD>
+			</TR>
+		</TABLE>
+		<P LANG="en-GB" STYLE="margin-bottom: 0in; widows: 2; orphans: 2"><BR>
+		</P>
+		<TABLE WIDTH=697 CELLPADDING=7 CELLSPACING=0>
+			<COL WIDTH=182>
+			<COL WIDTH=10>
+			<COL WIDTH=468>
+			
+			<c:forEach items="${educations}" var="education">
+			
+				<TR VALIGN=TOP>
+					<TD WIDTH=182 STYLE="border: none; padding: 0in">
+						<P ALIGN=RIGHT STYLE="margin-top: 0.03in; widows: 2; orphans: 2; page-break-after: avoid">
+							<FONT SIZE=2>
+								<FONT FACE="Arial Narrow, serif">
+									<FONT SIZE=2 STYLE="font-size: 11pt">
+										<SPAN STYLE="font-weight: normal">
+											<fmt:formatDate pattern="dd.MM.yyyy" value="${education.from}" />
+											-
+											<c:choose>
+											  <c:when test="${empty education.to}">
+											    Present
+											  </c:when>
+											  <c:otherwise>
+											  	<fmt:formatDate pattern="dd.MM.yyyy" value="${education.to}" />
+											  </c:otherwise>
+											</c:choose>
+										</SPAN>
+									</FONT>
+								</FONT>
+							</FONT>
+						</P>
+					</TD>
+					<TD WIDTH=10 STYLE="border: none; padding: 0in">
+						<P STYLE="margin-top: 0.03in; widows: 2; orphans: 2"><BR>
+						</P>
+					</TD>
+					<TD WIDTH=468 STYLE="border: none; padding: 0in">
+						<P STYLE="margin-top: 0.03in; widows: 2; orphans: 2">
+							<FONT SIZE=2>
+								<FONT SIZE=2 STYLE="font-size: 11pt">
+									<I>&nbsp;</I>
+								</FONT>
+							</FONT>
+						</P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=182 STYLE="border: none; padding: 0in">
+						<P ALIGN=RIGHT STYLE="margin-top: 0.03in; widows: 2; orphans: 2; page-break-after: avoid">
+							<FONT SIZE=2>
+								<FONT FACE="Arial Narrow, serif">
+									<FONT SIZE=2 STYLE="font-size: 11pt">
+										<SPAN STYLE="font-weight: normal">
+											Name and type of the educational institution:
+										</SPAN>
+									</FONT>
+								</FONT>
+							</FONT>
+						</P>
+					</TD>
+					<TD WIDTH=10 STYLE="border: none; padding: 0in">
+						<P STYLE="margin-top: 0.03in; widows: 2; orphans: 2"><BR>
+						</P>
+					</TD>
+					<TD WIDTH=468 STYLE="border: none; padding: 0in">
+						<P STYLE="margin-top: 0.03in; widows: 2; orphans: 2">
+							<FONT SIZE=2>
+								<FONT SIZE=2 STYLE="font-size: 11pt">
+									<I><c:out value="${education.educationName}"/></I>
+								</FONT>
+							</FONT>
+						</P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=182 STYLE="border: none; padding: 0in">
+						<P ALIGN=RIGHT STYLE="margin-top: 0.03in; widows: 2; orphans: 2; page-break-after: avoid">
+							<FONT SIZE=2>
+								<FONT FACE="Arial Narrow, serif">
+									<FONT SIZE=2 STYLE="font-size: 11pt">
+										<SPAN STYLE="font-weight: normal">
+											Primary disciplines:
+										</SPAN>
+									</FONT>
+								</FONT>
+							</FONT>
+						</P>
+					</TD>
+					<TD WIDTH=10 STYLE="border: none; padding: 0in">
+						<P STYLE="margin-top: 0.03in; widows: 2; orphans: 2"><BR>
+						</P>
+					</TD>
+					<TD WIDTH=468 STYLE="border: none; padding: 0in">
+						<P STYLE="margin-top: 0.03in; widows: 2; orphans: 2">
+							<FONT SIZE=2>
+								<FONT SIZE=2 STYLE="font-size: 11pt">
+									<I><c:out value="${education.disciplines}"/></I>
+								</FONT>
+							</FONT>
+						</P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=182 STYLE="border: none; padding: 0in">
+						<P ALIGN=RIGHT STYLE="margin-top: 0.03in; widows: 2; orphans: 2; page-break-after: avoid">
+							<FONT SIZE=2>
+								<FONT FACE="Arial Narrow, serif">
+									<FONT SIZE=2 STYLE="font-size: 11pt">
+										<SPAN STYLE="font-weight: normal">
+											Level by the national specification:
+										</SPAN>
+									</FONT>
+								</FONT>
+							</FONT>
+						</P>
+					</TD>
+					<TD WIDTH=10 STYLE="border: none; padding: 0in">
+						<P STYLE="margin-top: 0.03in; widows: 2; orphans: 2"><BR>
+						</P>
+					</TD>
+					<TD WIDTH=468 STYLE="border: none; padding: 0in">
+						<P STYLE="margin-top: 0.03in; widows: 2; orphans: 2">
+							<FONT SIZE=2>
+								<FONT SIZE=2 STYLE="font-size: 11pt">
+									<I><c:out value="${education.level}"/></I>
+								</FONT>
+							</FONT>
+						</P>
+					</TD>
+				</TR>
+			
+			</c:forEach>
+		</TABLE>
+		<P LANG="en-GB" ALIGN=JUSTIFY STYLE="margin-bottom: 0in; widows: 2; orphans: 2"><BR></P>
+		<TABLE WIDTH=196 CELLPADDING=7 CELLSPACING=0>
+			<COL WIDTH=182>
+			<TR>
+				<TD WIDTH=182 VALIGN=TOP STYLE="border: none; padding: 0in">
+					<P ALIGN=RIGHT STYLE="widows: 2; orphans: 2; page-break-after: avoid">
+					<FONT SIZE=2><B><SPAN STYLE="font-variant: small-caps"><FONT FACE="Arial Narrow, serif"><FONT SIZE=3>Professional experience</FONT></FONT></SPAN></B></FONT></P>
+				</TD>
+			</TR>
+		</TABLE>
+		<P LANG="en-GB" STYLE="margin-bottom: 0in; widows: 2; orphans: 2"><BR></P>
+		
+		<TABLE WIDTH=697 CELLPADDING=7 CELLSPACING=0>
+			<COL WIDTH=182>
+			<COL WIDTH=10>
+			<COL WIDTH=468>
+			
+			<c:forEach items="${profs}" var="prof">
+			
+				<TR VALIGN=TOP>
+					<TD WIDTH=182 STYLE="border: none; padding: 0in">
+						<P ALIGN=RIGHT STYLE="margin-top: 0.03in; widows: 2; orphans: 2; page-break-after: avoid">
+							<FONT SIZE=2>
+								<FONT FACE="Arial Narrow, serif">
+									<FONT SIZE=2 STYLE="font-size: 11pt">
+										<SPAN STYLE="font-weight: normal">
+											<fmt:formatDate pattern="dd.MM.yyyy" value="${prof.from}" />
+											-
+											<c:choose>
+											  <c:when test="${empty prof.to}">
+											    Present
+											  </c:when>
+											  <c:otherwise>
+											  	<fmt:formatDate pattern="dd.MM.yyyy" value="${prof.to}" />
+											  </c:otherwise>
+											</c:choose>
+										</SPAN>
+									</FONT>
+								</FONT>
+							</FONT>
+						</P>
+					</TD>
+					<TD WIDTH=10 STYLE="border: none; padding: 0in">
+						<P STYLE="margin-top: 0.03in; widows: 2; orphans: 2"><BR>
+						</P>
+					</TD>
+					<TD WIDTH=468 STYLE="border: none; padding: 0in">
+						<P STYLE="margin-top: 0.03in; widows: 2; orphans: 2">
+							<FONT SIZE=2>
+								<FONT SIZE=2 STYLE="font-size: 11pt">
+									<I>&nbsp;</I>
+								</FONT>
+							</FONT>
+						</P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=182 STYLE="border: none; padding: 0in">
+						<P ALIGN=RIGHT STYLE="margin-top: 0.03in; widows: 2; orphans: 2; page-break-after: avoid">
+							<FONT SIZE=2>
+								<FONT FACE="Arial Narrow, serif">
+									<FONT SIZE=2 STYLE="font-size: 11pt">
+										<SPAN STYLE="font-weight: normal">
+											Employer:
+										</SPAN>
+									</FONT>
+								</FONT>
+							</FONT>
+						</P>
+					</TD>
+					<TD WIDTH=10 STYLE="border: none; padding: 0in">
+						<P STYLE="margin-top: 0.03in; widows: 2; orphans: 2"><BR>
+						</P>
+					</TD>
+					<TD WIDTH=468 STYLE="border: none; padding: 0in">
+						<P STYLE="margin-top: 0.03in; widows: 2; orphans: 2">
+							<FONT SIZE=2>
+								<FONT SIZE=2 STYLE="font-size: 11pt">
+									<I><c:out value="${prof.employer}"/></I>
+								</FONT>
+							</FONT>
+						</P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=182 STYLE="border: none; padding: 0in">
+						<P ALIGN=RIGHT STYLE="margin-top: 0.03in; widows: 2; orphans: 2; page-break-after: avoid">
+							<FONT SIZE=2>
+								<FONT FACE="Arial Narrow, serif">
+									<FONT SIZE=2 STYLE="font-size: 11pt">
+										<SPAN STYLE="font-weight: normal">
+											Position:
+										</SPAN>
+									</FONT>
+								</FONT>
+							</FONT>
+						</P>
+					</TD>
+					<TD WIDTH=10 STYLE="border: none; padding: 0in">
+						<P STYLE="margin-top: 0.03in; widows: 2; orphans: 2"><BR>
+						</P>
+					</TD>
+					<TD WIDTH=468 STYLE="border: none; padding: 0in">
+						<P STYLE="margin-top: 0.03in; widows: 2; orphans: 2">
+							<FONT SIZE=2>
+								<FONT SIZE=2 STYLE="font-size: 11pt">
+									<I><c:out value="${prof.position}"/></I>
+								</FONT>
+							</FONT>
+						</P>
+					</TD>
+				</TR>
+			
+			</c:forEach>
+		</TABLE>
+		
 	</body>
 </html>
