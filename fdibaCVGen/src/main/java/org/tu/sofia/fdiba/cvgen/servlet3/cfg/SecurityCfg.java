@@ -46,7 +46,7 @@ public class SecurityCfg extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/personalProfile/profilePic").antMatchers("/generateCV/generate")
+		web.ignoring().antMatchers("/personalProfile/profilePic").antMatchers("/generateCV/tempCV")
 				.antMatchers("/login").antMatchers("/register/**").antMatchers("/resources/**");
 	}
 }

@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.allcolor.yahp.converter.CYaHPConverter;
@@ -36,11 +35,16 @@ public class CVGeneratorController {
 	@Autowired
 	private CVGeneratorService service;
 	
+	private CYaHPConverter converter = new CYaHPConverter();
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public String generateCVPage() {
+		return "generateCV";
+	}
+	
 	@RequestMapping(value = "/pdf", method = RequestMethod.GET)
-	public void generatePDF(HttpServletResponse response) throws MalformedURLException, CConvertException, IOException {
+	public void generatePDF(@RequestParam String template, HttpServletResponse response) throws MalformedURLException, CConvertException, IOException {
 
-		CYaHPConverter converter = new CYaHPConverter();
-		
 		Map<String, String> properties = new HashMap<>();
 		properties.put(IHtmlToPdfTransformer.PDF_RENDERER_CLASS, IHtmlToPdfTransformer.FLYINGSAUCER_PDF_RENDERER);
 		
@@ -49,22 +53,22 @@ public class CVGeneratorController {
 		response.flushBuffer();
 
 		converter.convertToPdf(
-				new URL("http://localhost:8080/generateCV/generate?usrName="
+				new URL("http://localhost:8080/generateCV/tempCV?template=" + template + "&usrName="
 						+ SecurityContextHolder.getContext().getAuthentication().getName()),
 				IHtmlToPdfTransformer.A4P, new ArrayList<>(), response.getOutputStream(), properties);
 	}
 	
 	@RequestMapping(value = "/doc", method = RequestMethod.GET)
-	public String generateDOC(HttpServletRequest request, HttpServletResponse response, Model model) {
+	public String generateDOC(@RequestParam String template, HttpServletResponse response, Model model) {
 		response.setContentType("application/msword");
 		response.setHeader("Content-Disposition", "inline; filename=word.doc");
 		model.addAttribute("exportToWord", "YES");
-		return generate(SecurityContextHolder.getContext().getAuthentication().getName(), model);
+		return euroPass(template, SecurityContextHolder.getContext().getAuthentication().getName(), model);
 	}
 	
-	@RequestMapping(value = "/generate", method = RequestMethod.GET)
-	public String generate(@RequestParam String usrName, Model model) {
+	@RequestMapping(value = "/tempCV", method = RequestMethod.GET)
+	public String euroPass(@RequestParam String template, @RequestParam String usrName, Model model) {
 		model.addAllAttributes(service.getCVMap(usrName));
-		return "euroPassTemplate";
+		return template;
 	}
 }

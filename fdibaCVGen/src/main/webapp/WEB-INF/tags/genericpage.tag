@@ -41,7 +41,7 @@
 	         			<ul class="nav navbar-nav">
 	            			<li class="active"><a href="<c:url value='/'/>">Home</a></li>
 	            			<sec:authorize access="hasRole('ROLE_EMPLOYER')">
-	            				<li><a href="#about">Browse CVs</a></li>
+	            				<li><a href="<c:url value='/browseCVs'/>">Browse CVs</a></li>
 	            			</sec:authorize>
 	            			<sec:authorize access="hasRole('ROLE_EMPLOYEE')">
 	            				<li><a href="<c:url value='/personalProfile'/>">Personal profile</a></li>
