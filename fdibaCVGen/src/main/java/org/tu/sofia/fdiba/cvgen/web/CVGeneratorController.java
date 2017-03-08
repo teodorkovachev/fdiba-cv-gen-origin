@@ -43,19 +43,15 @@ public class CVGeneratorController {
 	}
 	
 	@RequestMapping(value = "/pdf", method = RequestMethod.GET)
-	public void generatePDF(@RequestParam String template, HttpServletResponse response) throws MalformedURLException, CConvertException, IOException {
+	public void generatePDF(@RequestParam String template, HttpServletResponse response)
+			throws MalformedURLException, CConvertException, IOException {
 
-		Map<String, String> properties = new HashMap<>();
-		properties.put(IHtmlToPdfTransformer.PDF_RENDERER_CLASS, IHtmlToPdfTransformer.FLYINGSAUCER_PDF_RENDERER);
-		
 		response.setContentType("application/pdf");
-		
+
 		response.flushBuffer();
 
-		converter.convertToPdf(
-				new URL("http://localhost:8080/generateCV/tempCV?template=" + template + "&usrName="
-						+ SecurityContextHolder.getContext().getAuthentication().getName()),
-				IHtmlToPdfTransformer.A4P, new ArrayList<>(), response.getOutputStream(), properties);
+		generatePdf(converter, response.getOutputStream(), template,
+				SecurityContextHolder.getContext().getAuthentication().getName());
 	}
 	
 	@RequestMapping(value = "/doc", method = RequestMethod.GET)
@@ -70,5 +66,15 @@ public class CVGeneratorController {
 	public String euroPass(@RequestParam String template, @RequestParam String usrName, Model model) {
 		model.addAllAttributes(service.getCVMap(usrName));
 		return template;
+	}
+	
+	static void generatePdf(CYaHPConverter converter, java.io.OutputStream os, String template, String userName)
+			throws MalformedURLException, CConvertException {
+		Map<String, String> properties = new HashMap<>();
+		properties.put(IHtmlToPdfTransformer.PDF_RENDERER_CLASS, IHtmlToPdfTransformer.FLYINGSAUCER_PDF_RENDERER);
+
+		converter.convertToPdf(
+				new URL("http://localhost:8080/generateCV/tempCV?template=" + template + "&usrName=" + userName),
+				IHtmlToPdfTransformer.A4P, new ArrayList<>(), os, properties);
 	}
 }

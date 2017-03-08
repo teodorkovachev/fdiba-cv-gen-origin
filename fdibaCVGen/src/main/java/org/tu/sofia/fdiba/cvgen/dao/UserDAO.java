@@ -3,6 +3,8 @@
  */
 package org.tu.sofia.fdiba.cvgen.dao;
 
+import java.util.Collection;
+
 import org.tu.sofia.fdiba.cvgen.entity.User;
 
 /**
@@ -11,4 +13,6 @@ import org.tu.sofia.fdiba.cvgen.entity.User;
  */
 public interface UserDAO {
 	void createUser(User user);
+
+	Collection<User> getAll();
 }
