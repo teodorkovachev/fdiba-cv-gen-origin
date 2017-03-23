@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.tu.sofia.fdiba.cvgen.entity.CustomField;
 import org.tu.sofia.fdiba.cvgen.entity.Education;
 import org.tu.sofia.fdiba.cvgen.entity.Language;
 import org.tu.sofia.fdiba.cvgen.entity.PersonalInfo;
@@ -42,6 +43,7 @@ public class PersonalProfileController {
 		model.addAttribute("educations", pps.getCollectionOf(Education.class));
 		model.addAttribute("profs", pps.getCollectionOf(ProfExp.class));
 		model.addAttribute("langs", pps.getCollectionOf(Language.class));
+		model.addAttribute("customFields", pps.getCollectionOf(CustomField.class));
 		return "personalProfile";
 	}
 	
@@ -140,6 +142,30 @@ public class PersonalProfileController {
 	
 	@RequestMapping(value = "/lang/delete", method = RequestMethod.GET)
 	public String deleteLanguage(Language edu) {
+		pps.delete(edu);
+		return "redirect:/personalProfile";
+	}
+	
+	@RequestMapping(value = "/custom/new", method = RequestMethod.GET)
+	public String addNewCustomField(Model model) {
+		model.addAttribute("custom", new CustomField());
+		return "custom";
+	}
+	
+	@RequestMapping(value = "/custom/save", method = RequestMethod.POST)
+	public String saveCustomField(CustomField edu) {
+		pps.saveOrUpdate(edu);
+		return "redirect:/personalProfile";
+	}
+	
+	@RequestMapping(value = "/custom/edit/{id}", method = RequestMethod.GET)
+	public String editCustomField(@PathVariable("id") int id, Model model) {
+		model.addAttribute("custom", pps.getById(CustomField.class, id));
+		return "custom";
+	}
+	
+	@RequestMapping(value = "/custom/delete", method = RequestMethod.GET)
+	public String deleteCustomField(CustomField edu) {
 		pps.delete(edu);
 		return "redirect:/personalProfile";
 	}

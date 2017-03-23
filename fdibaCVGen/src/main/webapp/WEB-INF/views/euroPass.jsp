@@ -478,5 +478,32 @@
 			</c:forEach>
 		</TABLE>
 		
+		<c:forEach items="${cusoms}" var="custom">
+			
+			<P LANG="en-GB" ALIGN=JUSTIFY STYLE="margin-bottom: 0in; widows: 2; orphans: 2"><BR></P>
+		<TABLE WIDTH=196 CELLPADDING=7 CELLSPACING=0>
+			<COL WIDTH=182>
+			<TR>
+				<TD WIDTH=182 VALIGN=TOP STYLE="border: none; padding: 0in">
+					<P ALIGN=RIGHT STYLE="widows: 2; orphans: 2; page-break-after: avoid">
+					<FONT SIZE=2><B><SPAN STYLE="font-variant: small-caps"><FONT FACE="Arial Narrow, serif"><FONT SIZE=3>${custom.name}</FONT></FONT></SPAN></B></FONT></P>
+				</TD>
+			</TR>
+		</TABLE>
+		<P LANG="en-GB" STYLE="margin-bottom: 0in; widows: 2; orphans: 2"><BR></P>
+		
+		<TABLE WIDTH=697 CELLPADDING=7 CELLSPACING=0>
+			<COL WIDTH=182>
+			<COL WIDTH=10>
+			<COL WIDTH=468>
+			<TR>
+				<TD></TD>
+				<TD></TD>
+				<TD>${custom.value}</TD>
+			</TR>
+		</TABLE>
+			
+		</c:forEach>
+		
 	</body>
 </html>

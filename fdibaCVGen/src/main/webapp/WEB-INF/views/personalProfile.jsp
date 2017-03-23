@@ -292,6 +292,42 @@
 	    			</div>
     			</div>
     		</div>
+    		
+    		<div class="row">
+	   			<div class="panel panel-default">
+	   				<div class="panel-heading">
+	   					<h3 class="panel-title">Custom fields</h3>
+	   				</div>
+	   				<div class="panel-body">
+	   					<table class="table table-striped">
+							<thead>
+								<tr>
+							  		<th class="col-sm-2">Name</th>
+							  		<th class="col-sm-9">Value</th>
+							  		<th class="col-sm-1">
+							  			<form action="<c:url value='/personalProfile/custom/new'/>" method='GET'>
+	    									<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
+										</form>
+							  		</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${customFields}" var="custom">
+								    <tr>      
+								        <td>${custom.name}</td>
+								        <td>${custom.value}</td>
+								        <td>
+								        	<form action="<c:url value='/personalProfile/custom/edit/${custom.id}'/>" method='GET'>
+	    										<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span></button>
+	    									</form>
+										</td>
+								    </tr>
+								</c:forEach>
+							</tbody>
+						</table>
+	    			</div>
+	   			</div>
+	   		</div>
     	</div>
     	<script>
 			$(document).ready(setUpAjax("personalInfo", "/personalProfile/updatePersonalInfo"));

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.tu.sofia.fdiba.cvgen.dao.PersonalDetailDAO;
+import org.tu.sofia.fdiba.cvgen.entity.CustomField;
 import org.tu.sofia.fdiba.cvgen.entity.Education;
 import org.tu.sofia.fdiba.cvgen.entity.PersonalInfo;
 import org.tu.sofia.fdiba.cvgen.entity.ProfExp;
@@ -40,6 +41,7 @@ public class CVGeneratorServiceImpl implements CVGeneratorService {
 		modelMap.put("birthDate", pInfo.getBirth());
 		modelMap.put("educations", pdd.getCollectionByUserName(Education.class, userName));
 		modelMap.put("profs", pdd.getCollectionByUserName(ProfExp.class, userName));
+		modelMap.put("cusoms", pdd.getCollectionByUserName(CustomField.class, userName));
 		return modelMap;
 	}
 	
